@@ -5,6 +5,7 @@
 
 CONST CHAR* g_sz_VALUES[] = { "This", "is", "my", "first", "List", "Box" };
 
+
 BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 BOOL CALLBACK DlgProcAddElement(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
@@ -74,6 +75,7 @@ BOOL CALLBACK DlgProcAddElement(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 	switch (uMsg)
 	{
 	case WM_INITDIALOG:
+	
 		break;
 	case WM_COMMAND:
 		switch(LOWORD(wParam))

@@ -5,7 +5,8 @@ CONST CHAR g_sz_INVITE[] = "¬ведите им€ пользовател€";
 
 BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 //hwnd - окно (Handler to Windows - обработчик окна)
-//uMsg - 
+//uMsg - сообщение, которое передаЄтс€ окну
+//wParam, lParam - параметры сообщени€
 
 INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, INT nCmdShow)
 {
