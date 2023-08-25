@@ -5,7 +5,7 @@
 
 CONST CHAR* g_sz_VALUES[] = { "This", "is", "my", "first", "List", "Box" };
 
-BOOL CALLBACK DlgProc(HWND hwnd, UINT uMSG, WPARAM wParam, LPARAM lParam);
+BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 
 INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, INT nCmdShow)
@@ -14,19 +14,20 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, IN
 	return 0;
 }
 
+
 BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)
 	{
 	case WM_INITDIALOG:
 	{
-		HWND hCombo = GetDlgItem(hwnd, IDC_COMBO1);
+		HWND hList = GetDlgItem(hwnd, IDC_LIST1);
 		for (int i = 0; i < sizeof(g_sz_VALUES) / sizeof(g_sz_VALUES[0]); i++)
 		{
-			SendMessage(hCombo, CB_ADDSTRING, 0, (LPARAM)g_sz_VALUES[i]);
+			SendMessage(hList, LB_ADDSTRING, 0, (LPARAM)g_sz_VALUES[i]);
 		}
 	}
-		break;
+	break;
 	case WM_COMMAND:
 		switch (LOWORD(wParam))
 		{
@@ -34,9 +35,10 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
 			CONST INT SIZE = 256;
 			CHAR sz_buffer[SIZE] = {};
-			HWND hCombo = GetDlgItem(hwnd, IDC_COMBO1);
-			int i = SendMessage(hCombo, CB_GETCURSEL, 0, 0);
-			SendMessage(hCombo, CB_GETLBTEXT, i, (LPARAM)sz_buffer);
+			HWND hList = GetDlgItem(hwnd, IDC_LIST1);
+			int i = SendMessage(hList, LB_GETCURSEL, 0, 0);
+			SendMessage(hList, LB_GETTEXT, i, (LPARAM)sz_buffer);
+
 			if (i < 0)
 			{
 				MessageBox(hwnd, "Вы ничего не выбрали", "Info", MB_OK | MB_ICONINFORMATION);
@@ -47,14 +49,17 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 				sprintf(sz_message, "Был выбран элемент № %i, со значением \"%s\"", i, sz_buffer);
 				MessageBox(hwnd, sz_message, "Info", MB_OK | MB_ICONINFORMATION);
 			}
-
 		}
 		break;
-		case IDCANCEL: EndDialog(hwnd, 0);
+		case IDCANCEL:EndDialog(hwnd, 0);
 		}
 		break;
+		
+		
 	case WM_CLOSE:EndDialog(hwnd, 0);
 		
 	}
-	return FALSE;
+	 return FALSE;
+
+
 }

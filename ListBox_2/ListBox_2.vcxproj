@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{547534db-25b3-4ad5-8e25-2f5ddd8329ad}</ProjectGuid>
-    <RootNamespace>ListBox</RootNamespace>
+    <ProjectGuid>{b00a7302-3cbc-43bf-a196-f71eaf4a3df9}</ProjectGuid>
+    <RootNamespace>ListBox2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -133,7 +133,7 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="ListBox.rc" />
+    <ResourceCompile Include="ListBox_2.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
